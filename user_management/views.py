@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 import logging
 from .models import User
+import re
 
 # Create your views here.
 
@@ -14,12 +15,23 @@ class UserRegistration(APIView):
     permission_classes = []
     authentication_classes = []
 
+    def validate_email(self, email):
+
+        regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+        if re.fullmatch(regex, email):
+            logger.debug("Email ValidATED")
+            return True
+        else:
+            raise ValueError("Email is Incorrect")
+
     def post(self, request):
         try:
             username = request.data.get("username")
             password = request.data.get("password")
+            email_ = request.data["email"]
+            self.validate_email(email_)
 
-            user, created = User.objects.get_or_create(email=request.data["email"])
+            user, created = User.objects.get_or_create(email=email_)
             if created:
                 user.username = username
                 user.set_password(password)
