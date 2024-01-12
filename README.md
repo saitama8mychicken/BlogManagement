@@ -14,3 +14,7 @@ Steps to run the project
 4 - Do Migrations (python manage.py migrate)
 
 5 - Run the project (python manage.py runserver <port>)
+
+
+Api Documentation - https://documenter.getpostman.com/view/16836450/2s9YsMArfD
+
