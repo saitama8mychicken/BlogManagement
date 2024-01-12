@@ -13,7 +13,7 @@ class BlogTestCases(APITestCase):
         data = {
             "username": "gauravpandey",
             "password": "rbvoncvor",
-            "email": "aa.com"
+            "email": "aa@gmail.com"
             }
         self.client.post(url, data, format='json')
 
@@ -21,7 +21,7 @@ class BlogTestCases(APITestCase):
         data = {
             "username": "gauravpandey",
             "password": "rbvoncvor",
-            "email": "aa.com"
+            "email": "aa@gmai.com"
         }
         resp = self.client.post(url, data, format='json')
         self.auth_token = resp.json()["access"]
