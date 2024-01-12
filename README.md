@@ -1,8 +1,8 @@
-# BlogManagement
+#BlogManagement
 Managing the blogs
 
 System Dependecies
-Python version - 3.8.10
+-Python version - 3.8.10
 
 Steps to run the project
 1 - create a virtual environment
